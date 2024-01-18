@@ -23,7 +23,7 @@ const resetGame = () => {
     msg.classList.remove("msg-animation");
     
 };
-
+let clickCount = 0;
 boxes.forEach((box) => {
     box.addEventListener("click", () => {
         if(turnO){
@@ -36,6 +36,7 @@ boxes.forEach((box) => {
         box.disabled = true;
 
         checkWinner()
+        checkDraw();
     });
 }) ;
 
@@ -58,6 +59,14 @@ const showWinner = (winner) => {
     disableBoxes();
 
 };
+
+const checkDraw =() =>{
+    if(clickCount===9 && !checkWinner()){
+        msg.innerText ="Oops!! Its a draw!";
+        msgContainer.classList.remove("hide");
+        disableBoxes;
+    }
+}
  
 const checkWinner = () => {
     for(let pattern of winPatterns){
