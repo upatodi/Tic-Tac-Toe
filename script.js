@@ -34,6 +34,7 @@ boxes.forEach((box) => {
             turnO = true;
         }
         box.disabled = true;
+        clickCount++;
 
         checkWinner()
         checkDraw();
